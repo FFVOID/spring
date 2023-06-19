@@ -13,6 +13,6 @@ public class Board {
 	private String subject;
 	private String content;
 	private String ipAddr; //게시물 등록자의 ip주소
-	private String created; //게시물 생성날
 	private int hitCount; //조회수
+	private String created; //게시물 생성날
 }

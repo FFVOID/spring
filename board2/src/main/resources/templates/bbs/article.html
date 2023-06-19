@@ -2,14 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{layouts/layout1}">
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
 
-<link rel="stylesheet" type="text/css" href="css/article.css" />
-
-</head>
-<body>
+<th:block layout:fragment="css">
+	<link rel="stylesheet" type="text/css" href="css/article.css" />
+</th:block>
 
 	<div layout:fragment="content" id="bbs">
 		<div id="bbsArticle">
@@ -59,5 +55,4 @@
 		<script th:inline="javascript">	
 		</script>
 	</th:block>
-</body>
 </html>
