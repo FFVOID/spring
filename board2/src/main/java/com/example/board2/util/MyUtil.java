@@ -52,7 +52,7 @@ public class MyUtil {
 			// <a href="">◀이전</a> 모양을 만든다
 		}
 		
-		//2. 그냥 페이지 ( 6 7 8 9 10) 이동 버튼 만들기
+		//2. 그냥 페이지 (6 7 8 9 10) 이동 버튼 만들기
 		
 		page = currentPageSetup + 1; //page는 1 6 11 16..
 		
@@ -72,8 +72,13 @@ public class MyUtil {
 		}
 				
 		//3. 다음 버튼 만들기
+		if(totalPage - currentPageSetup > numPerBlock) {
+			sb.append("<a href=\"" + listUrl + "pageNum=" + currentPageSetup + "\">다음▶</a>&nbsp;"); //<a href="">다음▶</a>
+		}
 		
 		//4. 버튼 합쳐서 문자열로 리턴
+		System.out.println(sb.toString());
+		
 		return sb.toString();
 	}
 }

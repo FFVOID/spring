@@ -66,6 +66,12 @@
 	</div>
 	<th:block layout:fragment="script">
 		<script th:inline="javascript">
+			var errorMessage = [[${errorMessage}]];
+			
+			if(errorMessage != null){
+				alert(errorMessage);
+			}
+			
 			function sendIt(){
 				var f = document.myForm; //문서의 폼 태그 가져온다
 				var str = f.subject.value; //제목에 입력된 값을 가져온다
