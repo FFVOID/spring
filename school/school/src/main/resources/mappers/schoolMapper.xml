@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.school.dao.SchoolDao">
+	<select id="maxId" resultType="int">
+		select nvl(max(id) , 0) from school
+	</select>
+	
+	<insert id="insertData" parameterType="School">
+		insert into school values ( #{id} , #{name} , #{grade} , #{ban} , #{korean}, #{math}, #{english}, #{phone})
+	</insert>
+	
+	<select id="getDataCount" parameterType="map" resultType="int">
+		select nvl(count(*), 0) from school where ${searchKey} like '%' || #{searchValue} || '%'
+	</select>
+	
+	<select id="getLists" parameterType="map" resultType="School">
+		select * from (
+   			 select rownum rnum, data. * from(
+        		select id,name, grade, ban from school
+        		where ${searchKey} like '%' || #{searchValue} || '%'
+        		order by id) 
+        	data 
+        )
+        <![CDATA[
+        	where rnum >= #{start} and rnum <= #{end}
+        ]]>
+	</select>
+</mapper>

@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.bbs {
+	width:900px;
+}
+
+h2 {
+	margin: 0px auto;
+	text-align: center;
+	padding: 20px 0 20px 0;
+	font-weight: bold;
+}
+
+#form{
+	display:flex !important;
+	flex-direction: column;
+	align-items: center;
+}
+
+.btn-group{
+	display: flex !important;
+	width: 400px;
+	margin:0 auto;
+}

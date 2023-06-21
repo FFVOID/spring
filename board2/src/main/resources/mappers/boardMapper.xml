@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select nvl(count(*), 0) from board where ${searchKey} like '%' || #{searchValue} || '%'
 	</select>
 	
-	<select id="getLists" parameterType="map" resultType="Board"> <!-- map 여러개의 파라미터를 넣을떄 -->
+	<select id="getLists" parameterType="map" resultType="Board"> <!-- map = 여러개의 파라미터를 넣을떄 -->
 		select * from (
 		    select rownum rnum, data. * from (
 		        select num, name, subject, hitCount, to_char(created, 'YYYY-MM-DD') created

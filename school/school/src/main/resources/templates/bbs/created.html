@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+	
+<th:block layout:fragment="css">
+	<link rel="stylesheet" type="text/css" href="css/created.css" />
+</th:block>
+		<div layout:fragment="content" class="bbs container">
+		<h2>학생 정보 추가</h2>	
+			<form action="/created" method="post" name="myForm" id="form">
+				<div class="form-floating mb-4 col-7">
+				  <input type="text" class="form-control" id="floatingInput" name="name">
+				  <label for="floatingInput">이름</label>
+				</div>
+		
+				<div class="form-floating mb-4 col-7">
+				  <input type="text" class="form-control" id="floatingInput" name="grade">
+				  <label for="floatingInput">학년</label>
+				</div>
+		
+				<div class="form-floating mb-4 col-7">
+				  <input type="text" class="form-control" id="floatingInput" name="ban">
+				  <label for="floatingInput">반</label>
+				</div>
+		
+				<div class="form-floating mb-4 col-7">
+				  <input type="text" class="form-control" id="floatingInput" name="korean">
+				  <label for="floatingInput">국어점수</label>
+				</div>
+		
+				<div class="form-floating mb-4 col-7">
+				  <input type="text" class="form-control" id="floatingInput" name="math">
+				  <label for="floatingInput">수학점수</label>
+				</div>
+				
+				<div class="form-floating mb-4 col-7">
+				  <input type="text" class="form-control" id="floatingInput" name="english">
+				  <label for="floatingInput">영어점수</label>
+				</div>
+				 
+				<div class="form-floating mb-4 col-7">
+				  <input type="tel" class="form-control" id="floatingInput" name="phone">
+				  <label for="floatingInput">번호</label>
+				</div>
+			</form>
+			<div class="btn-group">
+			  <input class="btn btn-primary" type="button" value="등록" onclick="sendIt();"/>
+			  <input class="btn btn-primary" type="reset" value="다시입력" onclick="document.myForm.name.focus();"/>
+			  <input class="btn btn-primary" type="button" value="작성취소" onclick="javascript:location.href='/list';"/>
+			</div>
+		</div>
+		
+		
+		<th:block layout:fragment="script">
+			<script th:inline="javascript">
+				
+				function sendIt(){
+					var f = document.myForm;
+					var str = f.name.value;
+					str = str.trim();
+					
+					if(!str){
+						alert("이름을 입력하세요");
+						f.name.focus();
+						return;
+					}
+					
+					str = f.grade.value;
+					str = str.trim();
+					
+					if(!str){
+						alert("학년을 입력하세요");
+						f.grade.focus();
+						return;
+					}
+					
+					str = f.ban.value;
+					str = str.trim();
+					
+					if(!str){
+						alert("반을 입력하세요");
+						f.ban.focus();
+						return;
+					}
+					
+					str = f.korean.value;
+					str = str.trim();
+					
+					if(!str){
+						alert("국어점수를 입력하세요");
+						f.korean.focus();
+						return;
+					}
+					
+					str = f.math.value;
+					str = str.trim();
+					
+					if(!str){
+						alert("수학점수를 입력하세요");
+						f.math.focus();
+						return;
+					}
+					
+					str = f.english.value;
+					str = str.trim();
+					
+					if(!str){
+						alert("영어점수를 입력하세요");
+						f.english.focus();
+						return;
+					}
+					
+					str = f.phone.value;
+					str = str.trim();
+					
+					if(!str){
+						alert("번호를 입력하세요");
+						f.phone.focus();
+						return;
+					}
+					
+					f.submit();
+				}
+				
+			</script>
+		</th:block>
+</html>

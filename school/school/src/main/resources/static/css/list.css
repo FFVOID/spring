@@ -1,0 +1,11 @@
+@charset "UTF-8";
+	
+
+.searchbtn2{
+	display: flex !important;
+}
+
+.form-select{
+	width:80px !important;
+	padding: 0px 20px 0px 20px !important;
+}
