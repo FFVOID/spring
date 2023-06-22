@@ -7,9 +7,36 @@
 	<link rel="stylesheet" type="text/css" href="css/article.css" />
 </th:block>
 
-<div layout:fragment="content" class="content"></div>
+<div layout:fragment="content" class="content container" th:if="${#strings.isEmpty(errorMessage)}">
+	<h2>학생 상세 정보</h2>
+	<div class="card w-50">
+  			<h5 class="card-header" th:text="${school.name}"></h5>
+ 		<div class="card-body">
+    		<p class="card-text" th:text="|아이디: ${school.id}"></p>
+    		<p class="card-text" th:text="${school.grade} + |&nbsp${school.ban}"></p>
+    		<p class="card-text" th:text="|국어점수: ${school.korean}"></p>
+    		<p class="card-text" th:text="|수학점수: ${school.math}"></p>
+    		<p class="card-text" th:text="|영어점수: ${school.english}"></p>
+    		<p class="card-text" th:text="|번호: ${school.phone}"></p>
+  		</div>
+	</div>
+	
+	<div class="btns">
+		<input class="btn btn-secondary btn" type="button" value="학생목록" th:onclick="|location.href='list?@{${params}}'|">
+		<input class="btn btn-secondary btn" type="button" value="학생수정" th:onclick="|location.href='updated?id=@{${school.id}}&@{${params}}'|">
+		<input class="btn btn-secondary btn" type="button" value="학생삭제" th:onclick="|location.href='deleted_ok?id=@{${school.id}}&@{${params}}'|">
+	</div>
+</div>
 
 <th:block layout:fragment="script">
-	<script th:inline="javascript"></script>
+	<script th:inline="javascript">
+		var errorMessage = [[${errorMessage}]];
+		
+		if(errorMessage != null){
+			alert(errorMessage);
+		}
+		
+		
+	</script>
 </th:block>
 </html>

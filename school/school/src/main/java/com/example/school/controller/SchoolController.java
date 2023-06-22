@@ -25,9 +25,9 @@ public class SchoolController {
 	MyUtil myUtil;
 	
 	@RequestMapping(value = "/")
-		public String index() {
-			return "list";
-		}
+	public String index(School school, HttpServletRequest request, Model model) {
+		return list(school, request, model);
+	}
 	
 	@RequestMapping(value = "/created" , method = RequestMethod.GET)
 	public String created() {
@@ -126,4 +126,139 @@ public class SchoolController {
 		
 		return "bbs/list"; 
 	}
+	
+	//학생 상세정보
+	@RequestMapping(value = "/article" , method = RequestMethod.GET)
+	public String article(HttpServletRequest request, Model model) {
+		try {
+			int id = Integer.parseInt(request.getParameter("id"));
+			String pageNum = request.getParameter("pageNum");
+			String searchKey = request.getParameter("searchKey");
+			String searchValue = request.getParameter("searchValue");
+			
+			if(searchValue != null) {
+				searchValue = URLDecoder.decode(searchValue, "UTF-8");
+			}
+			
+			School school = schoolService.getReadData(id);
+			
+			if(school == null) {
+				return "redirect:/list?pageNum=" + pageNum;
+			}
+			
+			String param = "pageNum=" + pageNum;
+			
+			if(searchValue != null && !searchValue.equals("")) {
+				param += "&searchKey=" + searchKey;
+				param += "&searchValue=" + URLEncoder.encode(searchValue,"UTF-8");
+			}
+			
+			model.addAttribute("school", school);
+			model.addAttribute("params", param);
+			model.addAttribute("pageNum", pageNum);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMessage", "학생정보 불러오는 중 에러발생");
+		}
+		
+		return "bbs/article";
+	}
+	
+	//수정
+	@RequestMapping(value = "/updated", method = RequestMethod.GET)
+	public String updated(HttpServletRequest request, Model model) {
+		
+		try {
+			int id = Integer.parseInt(request.getParameter("id"));
+			String pageNum = request.getParameter("pageNum");
+			String searchKey = request.getParameter("searchKey");
+			String searchValue = request.getParameter("searchValue");
+			
+			if(searchValue != null) {
+				searchValue = URLDecoder.decode(searchValue, "UTF-8");
+			}
+			
+			School school = schoolService.getReadData(id);
+			
+			if(school == null) {
+				return "redirect:/list?pageNum=" + pageNum;
+			}
+			
+			String param = "pageNum=" + pageNum;
+			
+			if(searchValue != null && !searchValue.equals("")) {
+				param += "&searchKey" + searchKey;
+				param += "&searchValue" + URLEncoder.encode(searchValue,"UTF-8");
+			}
+			
+			model.addAttribute("school", school);
+			model.addAttribute("pageNum", pageNum);
+			model.addAttribute("params", param);
+			model.addAttribute("searchKey", searchKey);
+			model.addAttribute("searchValue", searchValue);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return "bbs/updated";
+	}
+	
+	//학생정보수정
+	@RequestMapping(value = "/updated_ok" , method = RequestMethod.POST)
+	public String updatedOK(School school, HttpServletRequest request, Model model) {
+		String pageNum = request.getParameter("pageNum");
+		String searchKey = request.getParameter("pageNum");
+		String searchValue = request.getParameter("searchValue");
+		String param = "?pageNum=" + pageNum;
+		
+		try {
+			schoolService.updateData(school);
+			
+			if(searchValue != null && !searchValue.equals("")) {
+				param += "&searchKey=" + searchKey;
+				param += "&searchValue=" + URLEncoder.encode(searchValue,"UTF-8");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			try {
+				param += "&errorMessage=" + URLEncoder.encode("학생 정보 수정 중 에러발생","UTF-8");
+			} catch (Exception e2) {
+				e.printStackTrace();
+			}
+		}
+		
+		return "redirect:/list" + param;
+	}
+	
+	@RequestMapping(value = "/deleted_ok" , method= RequestMethod.GET)
+	public String deleteOK(HttpServletRequest request, Model model) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		String pageNum = request.getParameter("pageNum");
+		String searchkey = request.getParameter("searchKey");
+		String searchValue = request.getParameter("searchValue");
+		String param = "?pageNum=" + pageNum;
+		
+		try {
+			schoolService.deleteData(id);
+			
+			if(searchValue != null && !searchValue.equals("")) {
+				param += "&searchkey=" + searchkey;
+				param += "&searchValue=" + URLEncoder.encode(searchValue,"UTF-8");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			try {
+				param += "&errorMessage=" + URLEncoder.encode("학생 삭제 중 에러발생","UTF-8");
+			} catch (Exception e2) {
+			
+			}
+		}
+		return "redirect:/list" + param;
+	}
+	
 }

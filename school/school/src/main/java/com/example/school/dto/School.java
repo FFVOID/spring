@@ -14,4 +14,7 @@ public class School {
 	private String math;
 	private String english;
 	private String phone;
+		
 }
+
+

@@ -23,4 +23,5 @@ public interface BoardDao {
 	public void updateData(Board board) throws Exception;
 	
 	public void deleteData(int num) throws Exception;
+	
 }

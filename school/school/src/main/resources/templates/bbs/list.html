@@ -16,15 +16,13 @@
 					<option value="name">이름</option>
 					<option value="grade">학년</option>
 				</select>
-				<input class="btn btn-primary btn-sm" type="submit" value="검 색" onclick="sendIt();" />
 				<input type="text" name="searchValue" class="textField" />
+				<input class="btn btn-secondary btn-sm" type="submit" value="검 색" onclick="sendIt();" />
 			</form>
 		</div>
+		
 		<div>
-			<input class="btn btn-primary btn-sm" type="button" value="학생등록하기" onclick="javascript:location.href='/created';">
-		</div>
-		<div>
-			<table class="table">
+			<table class="table table-striped">
 			  <thead>
 			    <tr>
 			      <th scope="col" class="id">아이디</th>
@@ -42,13 +40,31 @@
 			      <td class="grade" th:text="${school.grade}"></td>
 			      <td class="ban" th:text="${school.ban}"></td>
 			    </tr>
-			    
-			    <tr th:if="${#lists.size(dataCount)} <0">
+				
+			    <tr th:if="${#lists.size(dataCount)} < 0">
 			    	<td colspan="5">등록된 게시물이 없습니다</td>
 			    </tr>
+			    
 			   </tbody>
 			 </table>
 		</div>
+		
+		<div>
+			<nav aria-label="Page navigation example">
+				  <ul class="pagination" th:if="${#lists.size(dataCount)} > 0" th:utext="${pageIndexList}">
+				  </ul>
+			</nav>
+		</div>
+		
+		<div>
+			<input class="btn btn-secondary btn-sm" type="button" value="학생등록하기" onclick="javascript:location.href='/created';">
+			<input class="btn btn-secondary btn-sm" type="button" value="학생목록" onclick="javascript:location.href='/list';">
+		</div>
+		
+		
+		
+		
+		
 		
 </div>
 

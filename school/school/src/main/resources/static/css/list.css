@@ -8,4 +8,50 @@
 .form-select{
 	width:80px !important;
 	padding: 0px 20px 0px 20px !important;
+	margin-right: 10px;
 }
+
+.textField{
+	margin-right: 10px;
+}
+
+.container{
+	
+	width : 900px !important;
+}
+
+.container > h2{
+	margin: 0 auto ;
+	padding: 20px 0 20px 0 ;
+	text-align: center;
+	font-weight: bold;
+}
+
+.table{
+	margin-top: 20px;
+}
+
+.name > a {
+	text-decoration: none !important;
+	color:black !important;
+	font-weight: bold;
+}
+
+.name > a:hover ,a:active {
+	text-decoration: underline !important;
+	color : blue !important;
+}
+
+.page-item{
+	display: flex;
+}
+
+.active{
+	height: 38px !important;
+	padding-top: 8px;
+}
+
+.pagination{
+	justify-content: center;
+}
+

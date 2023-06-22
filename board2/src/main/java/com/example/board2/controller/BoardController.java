@@ -139,6 +139,7 @@ public class BoardController {
 		return "bbs/list";
 	}
 	
+	//글 상세정보
 	@RequestMapping(value = "/article", method = RequestMethod.GET) 
 	public String article(HttpServletRequest request, Model model) {
 		try {
@@ -257,6 +258,7 @@ public class BoardController {
 		return "redirect:/list" + param;
 	}
 	
+	//삭제
 	@RequestMapping(value = "/deleted_ok", method= {RequestMethod.GET})
 	public String deleteOK(HttpServletRequest request, Model model) {
 		int num = Integer.parseInt(request.getParameter("num"));

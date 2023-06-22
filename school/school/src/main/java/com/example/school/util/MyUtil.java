@@ -40,7 +40,7 @@ public class MyUtil {
 		}
 		
 		if(totalPage > numPerBlock && currentPageSetup > 0) {
-			sb.append("<a href=\"" + listUrl + "pageNum=" + currentPageSetup + "\">◀이전</a>&nbsp;");
+			sb.append("<li class=\"page-item\"><a class=\"page-link\" href=\"" + listUrl + "pageNum=" + currentPageSetup + "\">◀</a></li>");
 		}
 		
 		page = currentPageSetup + 1;
@@ -48,16 +48,16 @@ public class MyUtil {
 		while(page <= totalPage && page <= (currentPageSetup + numPerBlock)) {
 			
 			if(page == currentPage) {
-				sb.append("<font color=\"red\">" + page + "</font>&nbsp;");
+				sb.append("<li class=\"page-item\" colspan=\"5\"><a class=\"page-link active\" href=\"" + listUrl + "pageNum=" + page + "\">" + page + "</a></li>");
 			} else {
-				sb.append("<a href=\"" + listUrl + "pageNum=" + page + "\">" + page + "</a>&nbsp;");
+				sb.append("<li class=\"page-item\" colspan=\"5\"><a class=\"page-link\" href=\"" + listUrl + "pageNum=" + page + "\">" + page + "</a></li>");
 			}
 			
 			page++;
 		}
 		
 		if(totalPage - currentPageSetup > numPerBlock) {
-			sb.append("<a href=\"" + listUrl + "pageNum=" + currentPageSetup + "\">다음▶</a>&nbsp;");
+			sb.append("<li class=\"page-item\"><a class=\"page-link\" href=\"" + listUrl + "pageNum=" + currentPageSetup + "\">▶</a></li>");
 		}
 		
 		return sb.toString();

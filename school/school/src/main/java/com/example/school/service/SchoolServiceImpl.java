@@ -33,4 +33,19 @@ public class SchoolServiceImpl implements SchoolService{
 		return schoolMapper.getLists(searchKey, searchValue, start, end);
 	}
 
+	@Override
+	public School getReadData(int id) throws Exception {
+		return schoolMapper.getReadData(id);
+	}
+
+	@Override
+	public void updateData(School school) throws Exception {
+		schoolMapper.updateData(school);
+	}
+
+	@Override
+	public void deleteData(int id) throws Exception {
+		schoolMapper.deleteData(id);
+	}
+
 }

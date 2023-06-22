@@ -1,1 +1,26 @@
 @charset "UTF-8";
+
+.container > h2 {
+	text-align: center;
+	font-weight: bold;
+	margin: 20px 0px 20px 0px;
+}
+
+.card-header {
+	font-weight: bold;
+}
+
+.card {
+	margin: 0 auto;
+	font-weight: bold;
+}
+
+.btns{
+	text-align:center;
+	margin: 20px 0px 20px 0px;
+}
+
+.btn{
+	margin: 0px 5px 0px 5px;
+}
+
