@@ -130,8 +130,15 @@
 						f.phone.focus();
 						return;
 					}
-				
-					f.submit();
+					
+					const result = confirm("등록하시겠습니까?");
+					if(result){
+						f.submit();
+					} else {
+						return false;
+					}
+					
+					
 				}
 				
 			</script>
