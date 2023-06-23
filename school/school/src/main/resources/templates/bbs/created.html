@@ -119,9 +119,15 @@
 					str = f.phone.value;
 					str = str.trim();
 					
-					if(!str){
-						alert("번호를 입력하세요");
-						f.pnone.focus();
+					if(str){
+						if(isValidphone(str)){
+							alert("전화번호에 - 를 포함에 작성해주세요")
+							f.phone.focus();
+							return;
+						}
+					} else {
+						alert("전화번호를 입력해주세요");
+						f.phone.focus();
 						return;
 					}
 				

@@ -57,7 +57,7 @@ public class MyUtil {
 		}
 		
 		if(totalPage - currentPageSetup > numPerBlock) {
-			sb.append("<li class=\"page-item\"><a class=\"page-link\" href=\"" + listUrl + "pageNum=" + currentPageSetup + "\">▶</a></li>");
+			sb.append("<li class=\"page-item\"><a class=\"page-link\" href=\"" + listUrl + "pageNum=" + page + "\">▶</a></li>");
 		}
 		
 		return sb.toString();

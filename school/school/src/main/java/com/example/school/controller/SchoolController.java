@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.school.dto.School;
 import com.example.school.service.SchoolService;
@@ -233,8 +234,11 @@ public class SchoolController {
 		return "redirect:/list" + param;
 	}
 	
+	
 	@RequestMapping(value = "/deleted_ok" , method= RequestMethod.GET)
 	public String deleteOK(HttpServletRequest request, Model model) {
+		String message = "";
+		
 		int id = Integer.parseInt(request.getParameter("id"));
 		String pageNum = request.getParameter("pageNum");
 		String searchkey = request.getParameter("searchKey");
@@ -245,9 +249,13 @@ public class SchoolController {
 			schoolService.deleteData(id);
 			
 			if(searchValue != null && !searchValue.equals("")) {
+				
+				
 				param += "&searchkey=" + searchkey;
 				param += "&searchValue=" + URLEncoder.encode(searchValue,"UTF-8");
+				
 			}
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
