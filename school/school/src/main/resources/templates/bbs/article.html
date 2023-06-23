@@ -41,7 +41,7 @@
 			
 			const result = confirm("삭제하시겠습니까?");
 			if(result){
-				const url = location.origin;
+				const url = location.origin; //localhost = 80
 				location.href = url + "/deleted_ok?id=" + [[${school.id}]] + "&" + [[${params}]];
 			} else {
 				return false;
