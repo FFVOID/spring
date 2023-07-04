@@ -22,7 +22,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Item {
+public class Item extends BaseEntity{
 
 	@Id
 	@Column(name = "item_id") // 테이블로 생성될때 컬럼이름을 지정해준다
@@ -45,7 +45,4 @@ public class Item {
 	@Enumerated(EnumType.STRING)// enum의 이름을 DB에 저장
 	private ItemSellStatus itemSellStatus; // 판매상태(SELL, SOLD_OUT) item_sell_status
 
-	private LocalDateTime regTime; // 등록시간
-
-	private LocalDateTime updateTime; // 수정시간
 }
