@@ -18,15 +18,15 @@ public class FileService {
 		//이미지1.jpg -> 이미지의 확장자 명을 구한다
 		String extension = originalFileName.substring(originalFileName.lastIndexOf("."));
 		
-		String savedFileName = uuid.toString() + extension; //파일이름 생성 ex)ASDFA42FA3F
+		String savedFileName = uuid.toString() + extension; //파일이름 생성 ex)ASDFA42FA3F(uuid)
 		
-		//C://shop/item/ASDFA42FA3F.jpg
+		//C://shop/item/ASDFA42FA3F(uuid).jpg
 		String fileUploadFullUrl = uploadPath + "/" + savedFileName;
 		
 		//파일업로드
 		FileOutputStream fos = new FileOutputStream(fileUploadFullUrl);
 		fos.write(fileData);
-		fos.close();
+		fos.close(); //닫아줘야함
 		
 		return savedFileName;
 	}
