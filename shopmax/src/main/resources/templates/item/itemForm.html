@@ -100,7 +100,7 @@
 <th:block layout:fragment="script">
 	<script th:inline="javascript">
 		
-		$(documnet).ready(function(){
+		$(document).ready(function(){
         	var errorMessage = [[${errorMessage}]];
         	if(errorMessage != null){
             	alert(errorMessage);
