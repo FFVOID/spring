@@ -35,5 +35,33 @@ public class Order {
 	
 	private LocalDateTime orderDate; //주문날짜
 	
-
-}
+	public void addOrderItem(OrderItem orderItem) {
+		this.orderItems.add(orderItem);
+		orderItem.setOrder(this); //★양방향 참조관계 일때는 orderItem객체에도 order 객체를 세팅한다
+	}
+	
+	//order 객체를 생성해준다
+	public static Order createOrder(Member member, List<OrderItem> orderItemList) {
+		Order order = new Order();
+		order.setMember(member);
+		
+		for(OrderItem orderItem : orderItemList) {
+			order.addOrderItem(orderItem);
+		}
+		
+		order.setOrderStatus(OrderStatus.ORDER);
+		order.setOrderDate(LocalDateTime.now());
+		
+		return order;
+	}
+	
+	//총 주문 금액
+	public int getTotalPrice() {
+		int totalPrice = 0;
+		for(OrderItem orderItem : orderItems) {
+			totalPrice += orderItem.getTotalPrice();
+		}
+		
+		return totalPrice;
+	}
+} 

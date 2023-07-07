@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequiredArgsConstructor
 public class ItemRestController {
-	
+	/*
 	private final ItemService itemService;
 	
 	// 상품관리 페이지
@@ -37,5 +37,5 @@ public class ItemRestController {
 		//model.addAttribute("maxPage", 5); //상품관리 페이지 하단에 보여줄 최대 페이지 번호
 		
 		return items;
-	}
+	}*/
 }
