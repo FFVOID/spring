@@ -14,6 +14,8 @@ import lombok.Setter;
 @Setter
 public class OrderHistDto {
 	
+	public OrderHistDto() {};
+	
 	//엔티티 => dto로 변환
 	public OrderHistDto(Order order) {
 		this.orderId = order.getId();

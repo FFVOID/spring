@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.thymeleaf.util.StringUtils;
 
 import com.shopmax.dto.OrderDto;
 import com.shopmax.dto.OrderHistDto;
@@ -67,7 +68,7 @@ public class OrderService {
 		Long totalCount = orderRepository.countOrder(email);
 		
 		//3. 주문리스트를 순회하면서 구매 이력 페이지에 전달할 DTO(OrderHistDto)를 생성
-		List<OrderHistDto> orderHistDtos = new ArrayList<>();
+		List<OrderHistDto> orderHistDtoList = new ArrayList<>();
 		
 		for(Order order : orderList) {
 			OrderHistDto orderHistDto = new OrderHistDto(order);
@@ -81,10 +82,47 @@ public class OrderService {
 				orderHistDto.addOrderItemDto(orderItemDto);
 			}
 			
-			orderHistDtos.add(orderHistDto);
+			orderHistDtoList.add(orderHistDto);
 		}
 		
 		//4. 페이지 구현 객체를 생성하여 return
-		return new PageImpl<>(orderHistDtos, pageable, totalCount);
+		return new PageImpl<>(orderHistDtoList, pageable, totalCount);
+	}
+	
+	//본인확인(현재 로그인한 사용자와 주문데이터를 생성한 사용자가 같은지 검사)
+	@Transactional(readOnly = true)
+	public boolean validateOrder(Long orderId, String email) {
+		Member curMember = memberRepository.findByEmail(email);
+		Order order = orderRepository.findById(orderId)
+									 .orElseThrow(EntityNotFoundException::new); //주문내역
+		
+		Member savedMember = order.getMember(); //주문한 사용자 찾기
+		
+		//로그인한 사용자의 이메일과 주문한 사용자의 이메일이 같은지 최종비교
+		if(!StringUtils.equals(curMember.getEmail(), savedMember.getEmail())) {
+			//같지 않으면
+			return false;
+		}
+		
+		return true;
+	}				
+	
+	//주문취소
+	public void cancelOrder(Long orderId) {
+		Order order = orderRepository.findById(orderId) 
+									 .orElseThrow(EntityNotFoundException::new); //아이디로셀렉할떄쓴다예외처리
+		
+		//orderstatus를 update -> entity 의 필드 값을 바꿔주면 된다.
+		order.cancelOrder();
+	}
+	
+	//주문삭제
+	public void deleteOrder(Long orderId) {
+		//★delete하기 전에 select를 한번 해준다 -> 영속성 컨텍스트에 엔티티를 저장한 후 변경 감지를 하도록 하기 위해
+		Order order = orderRepository.findById(orderId) 
+				 					 .orElseThrow(EntityNotFoundException::new);
+		
+		//delete
+		orderRepository.delete(order);
 	}
 }

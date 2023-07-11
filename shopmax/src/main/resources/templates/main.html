@@ -161,8 +161,10 @@
 									<h2 class="item-title">
 										<a th:text="${item.itemNm}"></a>
 									</h2>
-									<strong class="item-price" ><del>
-									[[${#numbers.formatInteger(item.price * 1.5, 0, 'COMMA')}]]원</del>
+									<strong class="item-price" >
+									<del>
+									[[${#numbers.formatInteger(item.price * 1.5, 0, 'COMMA')}]]원
+									</del>
 									&nbsp;&nbsp;[[${#numbers.formatInteger(item.price, 0, 'COMMA')}]]원
 									</strong>
 									<div class="star-rating">
