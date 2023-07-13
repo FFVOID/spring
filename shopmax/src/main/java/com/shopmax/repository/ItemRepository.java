@@ -44,6 +44,8 @@ public interface ItemRepository extends JpaRepository<Item, Long> , ItemReposito
 	@Query("select i from Item i where i.itemNm = :itemNm and i.itemSellStatus = :itemSellStatus")
 	List<Item> findByItemNmAndItemSellStatus2(@Param("itemNm") String itemNm, @Param("itemSellStatus") ItemSellStatus itemSellStatus);
 	
+	
+	
 	@Query(value = "select data.num num, item.item_id id, item.item_nm itemNm, item.price price, item_img.img_url imgUrl, item_img.repimg_yn repimgYn \r\n"
 			+ "            from item \r\n"
 			+ "			inner join item_img on (item.item_id = item_img.item_id)\r\n"
