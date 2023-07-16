@@ -1,0 +1,28 @@
+package com.museum.dto;
+
+import java.time.LocalDateTime;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
+
+@Entity
+@Table(name="exhibition")
+@ToString
+@Getter
+@Setter
+public class NewExDto {
+	
+	@Id
+	@Column(name="exhibition_id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
+	@NotBlank(message = "전시명은 필수 입력 값입니다")
+	private String exhibitionNm;
+
+	private LocalDateTime exhibitionDate; //전시기간
+	
+	@NotBlank(message = "전시설명은 필수 입력 값입니다")
+	private String exhibitionDetail; //전시설명
+}

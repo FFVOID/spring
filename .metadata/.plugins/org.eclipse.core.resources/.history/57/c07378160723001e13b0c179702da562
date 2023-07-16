@@ -1,0 +1,14 @@
+package com.museum.dto;
+
+import lombok.Setter;
+
+@Getter
+@Setter
+public class NewExDto {
+	
+	private Long id;
+	
+	private String exhibitionNm;
+	
+	private 
+}

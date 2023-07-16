@@ -1,0 +1,35 @@
+package com.museum.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.museum.dto.NewExDto;
+import com.museum.dto.NewItemDto;
+
+import lombok.RequiredArgsConstructor;
+
+@Controller
+@RequiredArgsConstructor
+public class ExhibitionController {
+	
+	@GetMapping(value = "/admin/newEx")
+	public String newEx(Model model) {
+		model.addAttribute("newExDto", new NewExDto());
+		return "admin/newEx";
+	}
+	
+	@GetMapping(value = "/admin/newExs")
+	public String newExitem(Model model) {
+		model.addAttribute("newItemDto", new NewItemDto());
+		return "admin/newEx";
+	}
+	
+	@GetMapping(value = "/admin/exhibitionList")
+	public String exhibitionList() {
+		return "admin/exhibitionList";
+	}
+	
+	
+	
+}

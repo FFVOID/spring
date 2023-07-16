@@ -1,0 +1,5 @@
+package com.museum.repository;
+
+public interface ExhibitionRepository {
+
+}

@@ -1,0 +1,5 @@
+package com.museum.dto;
+
+public class NewExDto {
+
+}

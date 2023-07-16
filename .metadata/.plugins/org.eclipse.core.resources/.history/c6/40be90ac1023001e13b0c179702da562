@@ -1,0 +1,37 @@
+package com.museum.dto;
+
+import java.time.LocalDateTime;
+
+import org.modelmapper.ModelMapper;
+
+import com.museum.entity.Exhibition;
+
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
+
+
+@Getter
+@Setter
+public class NewExDto {
+	
+	private Long id;
+	
+	@NotBlank(message = "전시명은 필수 입력 값입니다")
+	private String exhibitionNm;
+
+	private LocalDateTime exhibitionDate; //전시기간
+	
+	@NotBlank(message = "전시설명은 필수 입력 값입니다")
+	private String exhibitionDetail; //전시설명
+	
+	private static ModelMapper modelMapper = new ModelMapper();
+	
+	//dto -> entitiy (insert과정에서 서버에 저장)
+	public Exhibition createEx() {
+		return modelMapper.map(this, Exhibition.class);
+	}
+	
+	public static Exhibition NewExDto of (Exhibition exhibition) {
+		
+	}
+}

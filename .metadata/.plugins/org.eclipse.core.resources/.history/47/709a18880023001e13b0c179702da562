@@ -1,0 +1,5 @@
+package com.museum.service;
+
+public class ExhibitionService {
+
+}

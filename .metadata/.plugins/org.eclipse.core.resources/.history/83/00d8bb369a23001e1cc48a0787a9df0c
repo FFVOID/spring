@@ -1,0 +1,5 @@
+package com.museum.controller;
+
+public class ExhibitionController {
+
+}

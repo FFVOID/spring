@@ -1,0 +1,20 @@
+package com.museum.service;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.museum.repository.ItemImgRepository;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+@Transactional
+public class ExhibitionService {
+	
+	private final ItemImgRepository itemRepository;
+	private final ItemImgRepository itemImgRepository;
+	private final ItemImgService itemImgService;
+	
+	public Long saveExhibition()
+}
