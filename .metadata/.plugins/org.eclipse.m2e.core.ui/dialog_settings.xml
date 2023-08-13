@@ -2,6 +2,11 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\project\pay"/>
+			<item value="C:\project\spotify-main"/>
+			<item value="C:\project\spring\board2"/>
+			<item value="C:\project\jpashop"/>
+			<item value="C:\project\testgit"/>
 			<item value="C:\project\pro"/>
 			<item value="C:\project\연습"/>
 			<item value="C:\project\spring_project\museum"/>

@@ -1,7 +1,5 @@
 package com.shopmax.entity;
 
-import java.time.LocalDateTime;
-
 import jakarta.persistence.*;
 
 import lombok.*;

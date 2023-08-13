@@ -33,12 +33,26 @@ public class MemberController {
 		return "member/memberLoginForm";
 	}
 	
+	// 로그인 화면2
+	@GetMapping(value="/logins")
+	public String loginMember3() {
+		return "member/loginForm";
+	}
+		
+	
 	// 회원가입 화면
 	@GetMapping(value="/members/new")
 	public String memberForm(Model model) {
 		model.addAttribute("memberFormDto", new MemberFormDto());
 		return "member/memberForm";
 	}
+	
+	// 회원가입 화면2
+	@GetMapping(value="/members/newmem")
+	public String newMemberForm(Model model) {
+		return "member/newMemberForm";
+	}
+	
 	
 	// 회원가입
 	@PostMapping(value = "/members/new")

@@ -55,7 +55,7 @@ public class Member extends BaseEntity {
 		member.setAddress(memberFormDto.getAddress());
 		member.setPassword(password);
 		// member.setRole(Role.ADMIN); // 관리자로 가입 할때
-		member.setRole(Role.ADMIN); // 이란 사용자로 가입 할때
+		member.setRole(Role.USER); // 일반 사용자로 가입 할때
 		
 		return member;
 	}

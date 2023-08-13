@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+		:root {
+	--green-color: #98FB98;
+}
+	.newForm {
+	margin: auto;
+	width: 500px;
+	border-radius: 5px;
+	padding: 20px;
+	
+}
+
+.in {
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border: none;
+	margin-bottom: 25px;
+	border: 1px solid;
+	/* border-color: var(--green-color); */
+	border-color: #dee2e6;
+	margin-top: 10px;
+	height: 50px;
+	font-size: 14px;
+	
+}
+
+.in:focus {
+	outline: 1px solid var(--green-color);
+}
+
+#btn {
+	background-color: #1BBC9B;
+	margin-bottom: 30px;
+	color: white;
+	cursor: pointer;
+	transition: background-color 0.5s;
+	border: none;
+}
+
+#btn:hover{
+	background-color: gold;
+}
+
+
+.id_save {
+	margin-bottom: 15px;
+	text-align: left;
+}
+
+h2 {
+ text-align: center;
+ color: black;	
+}
+
+p{
+	color: black;
+	font-size: 15px;
+}
+
+
+
+
+</style>
+
+
+
+</head>
+<body>
+	<h2>회원가입</h2>
+	<div class="newForm">
+		<form action="">
+			<div>
+				<label for="email" class="email">이메일</label>
+				<input type="email" placeholder="이메일을 입력해주세요" class="in" id="email"> 
+			</div>
+			<div>
+				<label for="password" class="password">비밀번호</label>
+				<input type="password" placeholder="비밀번호를 입력해주세요" class="in" id="password">
+			</div>
+			<div>
+				<label for="passwordConfirm" class="passwordConfirm">비밀번호 확인</label>
+				<input type="password" placeholder="비밀번호를 한번더 입력해주세요" class="in" id="passwordConfirm">
+			</div>
+			<div>
+				<label for="username" class="username">닉네임</label>
+				<input type="text" placeholder="사용하실 닉네임을 입력해주세요" class="in" id="username"> 
+			</div>
+		</form>
+		<button type="submit" id="btn" class="in">가입하기</button>
+	</div>
+</body>
+</html>
