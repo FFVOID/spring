@@ -1,4 +1,4 @@
-	package com.shopmax.controller;
+ 	package com.shopmax.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -105,7 +105,7 @@ public class ItemController {
 	  }
 	 
 	
-	//상품 수정페이지 보기          path에서가져옴(계속바뀜)
+	//수정할 상품의 저장된 정보를 불러옴          path에서가져옴(계속바뀜)
 	@GetMapping(value = "/admin/item/{itemId}")
 	public String itemDtl(@PathVariable("itemId") Long itemId, Model model) {
 		
@@ -124,7 +124,7 @@ public class ItemController {
 		return "item/itemModifyForm";
 	}
 	
-	//상품 수정(update)
+	//상품 수정페이지(update)
 	@PostMapping(value = "/admin/item/{itemId}")
 	public String itemUpdate(@Valid ItemFormDto itemFormDto, Model model, BindingResult bindingResult,
 			@RequestParam("itemImgFile") List<MultipartFile> itemImgFileList) {
