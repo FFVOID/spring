@@ -38,6 +38,13 @@ public class MemberController {
 	public String loginMember3() {
 		return "member/loginForm";
 	}
+	
+	
+	// 약관 동의
+	@GetMapping(value="/members/agree")
+	public String agreeMember() {
+		return "member/agreeForm";
+	}
 		
 	
 	// 회원가입 화면
