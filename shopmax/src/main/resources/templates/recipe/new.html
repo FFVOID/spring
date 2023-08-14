@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+<style type="text/css">
+	.newRecipe {
+	margin: auto;
+	width: 700px;
+	border-radius: 5px;
+	padding: 20px;
+	
+}
+
+.in {
+	width: 500px;
+	padding: 10px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border: none;
+	margin-bottom: 15px;
+	border: 1px solid;
+	/* border-color: var(--green-color); */
+	border-color: #dee2e6;
+	margin-top: 15px;
+	height: 50px;
+	font-size: 14px;
+	margin-left: 50px;
+	
+}
+
+.recipeMain{
+	display: flex;
+}
+
+.recipe{
+	margin-bottom: auto;
+	margin-top: auto;
+	width:100px;
+}
+
+.recipeContentMain{
+	display: flex;
+}
+
+.recipeNew{
+	margin-bottom: auto;
+	margin-top: auto;
+	width:100px;
+}
+
+.recipeContent{
+	width: 500px;
+	padding: 10px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border: none;
+	margin-bottom: auto;
+	margin-top: auto;
+	border: 1px solid;
+	/* border-color: var(--green-color); */
+	border-color: #dee2e6;
+	margin-top: 10px;
+	font-size: 14px;
+	margin-left: 50px;
+	height: 120px;
+	resize: none;
+}
+
+.recipeNew{
+	width:100px;
+	margin-bottom: auto;
+	margin-top: auto;
+}
+
+.playMain{
+	display: flex;
+}
+
+.play{
+	width:100px;
+	margin-bottom: auto;
+	margin-top: auto;
+}
+
+.pictureMain{
+	display: flex;
+}
+
+.picture{
+	width:100px;
+	margin-bottom: auto;
+	margin-top: auto;
+}
+
+.categoryMain{
+	display: flex;
+}
+
+.category{
+	width:100px;
+	margin-bottom: auto;
+	margin-top: auto;
+	margin-right: 50px;
+}
+
+.form-select{
+	width: 150px;
+	margin-right: 50px;
+}
+
+</style>
+</head>
+<body>
+	<div>
+		<p>레시피 등록</p>
+		<div class="newRecipe">
+			<form action="">
+				<div class="recipeMain">
+					<label for="recipe" class="recipe">레시피 제목</label>
+					<input type="text" placeholder="레시피 제목을 입력해주세요" class="in" id="recipe"> 
+				</div>
+				<div class="recipeContentMain">
+					<label for="recipeContent" class="recipeNew">레시피 소개</label>
+					<textarea  placeholder="레시피의 배경을 알려주세요" class="recipeContent" id="recipeContent"></textarea>
+				</div>
+				<div class="playMain">
+					<label for="play" class="play">동영상 주소</label>
+					<input type="text" placeholder="레시피 동영상의 주소를 입력해주세요" class="in" id="play"> 
+				</div>
+				<div class="pictureMain">
+					<label for="picture" class="picture">요리완성사진</label>
+					<input type="file" class="in" id="picture"> 
+				</div>
+				<div class="categoryMain">
+					<label for="category" class="category">카테고리</label>
+						<select class="form-select" aria-label="select example">
+						  <option selected>종류별</option>
+						  <option value="1">One</option>
+						  <option value="2">Two</option>
+						  <option value="3">Three</option>
+						</select>
+						<select class="form-select" aria-label="select example">
+						  <option selected>조리별</option>
+						  <option value="1">One</option>
+						  <option value="2">Two</option>
+						  <option value="3">Three</option>
+						</select>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

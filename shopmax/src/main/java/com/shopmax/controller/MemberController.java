@@ -45,7 +45,13 @@ public class MemberController {
 	public String agreeMember() {
 		return "member/agreeForm";
 	}
-		
+	
+	
+	@GetMapping(value="/recipe/new")
+	public String newRecipe() {
+		return "recipe/new";
+	}
+	
 	
 	// 회원가입 화면
 	@GetMapping(value="/members/new")
@@ -59,6 +65,8 @@ public class MemberController {
 	public String newMemberForm(Model model) {
 		return "member/newMemberForm";
 	}
+	
+	
 	
 	
 	// 회원가입

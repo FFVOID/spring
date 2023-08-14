@@ -32,7 +32,25 @@
 	
 }
 
+.in2 {
+	width: 420px;
+	padding: 10px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border: none;
+	border: 1px solid;
+	/* border-color: var(--green-color); */
+	border-color: #dee2e6;
+	height: 50px;
+	font-size: 14px;
+	margin : auto;
+}
+
 .in:focus {
+	outline: 1px solid var(--green-color);
+}
+
+.in2:focus {
 	outline: 1px solid var(--green-color);
 }
 
@@ -65,8 +83,28 @@ p{
 	font-size: 15px;
 }
 
+.emailMain{
+	display: flex;
+	margin-bottom: 15px;
+    margin-top: 10px;
+}
 
+.emailConfirmMain{
+	display: flex;
+	margin-bottom: 15px;
+    margin-top: 10px;
+}
 
+.emailbtn{
+	margin : auto;
+	width: 65px;
+	height: 50px;
+		cursor: pointer;
+		background-color: white;
+		border: 1px solid;
+		border-color: #dee2e6;
+		border-radius: 5px;
+}
 
 </style>
 
@@ -77,10 +115,16 @@ p{
 	<h2>회원가입</h2>
 	<div class="newForm">
 		<form action="">
-			<div>
-				<label for="email" class="email">이메일</label>
-				<input type="email" placeholder="이메일을 입력해주세요" class="in" id="email"> 
-			</div>
+			<label for="email" class="email">이메일</label>
+				<div class="emailMain">
+					<input type="email" placeholder="이메일을 입력해주세요" class="in2" id="email">
+					<button class="emailbtn">인증번호받기</button> 
+				</div>
+			<label for="emailConfirm" class="emailConfirm">인증번호</label>
+				<div class="emailConfirmMain">
+					<input type="text" placeholder="인증번호를 입력해주세요" class="in2" id="emailConfirm"> 
+					<button class="emailbtn">확인</button> 
+				</div>
 			<div>
 				<label for="password" class="password">비밀번호</label>
 				<input type="password" placeholder="비밀번호를 입력해주세요" class="in" id="password">
@@ -88,6 +132,10 @@ p{
 			<div>
 				<label for="passwordConfirm" class="passwordConfirm">비밀번호 확인</label>
 				<input type="password" placeholder="비밀번호를 한번더 입력해주세요" class="in" id="passwordConfirm">
+			</div>
+			<div>
+				<label for="phoneNum" class="phoneNum">휴대폰 번호</label>
+				<input type="tel" placeholder="휴대폰 번호를 입력해주세요" class="in" id="phoneNum"> 
 			</div>
 			<div>
 				<label for="username" class="username">닉네임</label>
