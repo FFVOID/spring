@@ -42,7 +42,6 @@
     <fullyQualifiedTypeName name="com.example.pay.constant.ExceptionCode"/>
     <fullyQualifiedTypeName name="lombok.Getter"/>
     <fullyQualifiedTypeName name="com.example.pay.service.BusinessLogicException"/>
-    <fullyQualifiedTypeName name="lombok.RequiredArgsConstructor"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
     <fullyQualifiedTypeName name="java.io.BufferedReader"/>
     <fullyQualifiedTypeName name="com.example.pay.dto.KakaoApproveResponse"/>
+    <fullyQualifiedTypeName name="lombok.RequiredArgsConstructor"/>
 </qualifiedTypeNameHistroy>

@@ -46,7 +46,7 @@ public class MemberController {
 		return "member/agreeForm";
 	}
 	
-	
+	//레시피 등록
 	@GetMapping(value="/recipe/new")
 	public String newRecipe() {
 		return "recipe/new";

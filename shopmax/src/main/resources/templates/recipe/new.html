@@ -2,12 +2,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <style type="text/css">
+	:root {
+	--green-color: #98FB98;
+}
+
 	.newRecipe {
 	margin: auto;
 	width: 700px;
@@ -71,12 +77,6 @@
 	resize: none;
 }
 
-.recipeNew{
-	width:100px;
-	margin-bottom: auto;
-	margin-top: auto;
-}
-
 .playMain{
 	display: flex;
 }
@@ -99,6 +99,7 @@
 
 .categoryMain{
 	display: flex;
+	margin-bottom: 10px;
 }
 
 .category{
@@ -113,12 +114,252 @@
 	margin-right: 50px;
 }
 
+h2{
+	text-align: left;
+	margin: 0 auto;
+}
+
+.in3{
+	width: 200px;
+	padding: 10px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border: none;
+	border: 1px solid;
+	/* border-color: var(--green-color); */
+	border-color: #dee2e6;
+	margin-top: 5px;
+	height: 40px;
+	font-size: 14px;
+	margin-left: 50px;
+}
+
+.ingredientsMain{
+	display: flex;
+}
+
+.ingredients{
+	margin-bottom: auto;
+	margin-top: auto;
+	width: 100px;
+}
+
+.in4{
+	width: 200px;
+	padding: 10px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border: none;
+	border: 1px solid;
+	/* border-color: var(--green-color); */
+	border-color: #dee2e6;
+	margin-top: 5px;
+	height: 40px;
+	font-size: 14px;
+	margin-left: 25px;
+}
+
+p{
+	margin: 0 auto;
+}
+
+.btn{
+	width: 65px;
+	height: 40px;
+		cursor: pointer;
+		background-color: white;
+		border: 1px solid;
+		border-color: #dee2e6;
+		border-radius: 5px;
+		margin-bottom: 5px;
+		font-size: 13px;
+		
+}
+
+.btn:hover{
+	background-color: var(--green-color);
+	border: 1px solid;
+	border-color: #dee2e6;
+}
+
+.recipeTurnMain{
+	display: flex;
+}
+
+.recipeTurns{
+	margin-bottom: auto;
+	margin-top: auto;
+	width: 100px;
+}
+
+.recipeTurn{
+	width: 500px;
+	padding: 10px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border: none;
+	margin-bottom: auto;
+	margin-top: auto;
+	border: 1px solid;
+	/* border-color: var(--green-color); */
+	border-color: #dee2e6;
+	margin-top: 10px;
+	font-size: 14px;
+	margin-left: 50px;
+	height: 120px;
+	resize: none;
+}
+
+.recipePictureMain {
+	display: flex;
+}
+
+.recipePictures{
+	margin-bottom: auto;
+	margin-top: auto;
+	width: 100px;
+}
+
+.in5{
+	width: 150px;
+	height: 150px;
+	padding: 10px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border: none;
+	margin-bottom: 15px;
+	border: 1px solid;
+	/* border-color: var(--green-color); */
+	border-color: #dee2e6;
+	margin-top: 15px;
+	font-size: 14px;
+	margin-left: 50px;
+	display: none;
+	
+}
+
+.input-file-button{
+	width:130px;
+	height:130px;
+  border-radius: 4px;
+  background-color:#dee2e6;
+  color: black;
+  cursor: pointer;
+  margin-left: 50px;
+  	margin-top: 10px;
+
+}
+
+.input-file-button:hover{
+	border: 1px solid;
+	border-color: black;
+}
+
+   li {
+      list-style: none;
+    }
+
+    img {
+      width: 200px;
+      height: 200px;
+    }
+
+    .real-upload {
+      display: none;
+    }
+
+    .upload {
+      width: 200px;
+      height: 200px;
+      background-color: antiquewhite;
+    }
+
+    .image-preview {
+      width: 1300px;
+      height: 200px;
+      background-color: aquamarine;
+      display: flex;
+      gap: 20px;
+    }
+
 </style>
 </head>
 <body>
+<script type="text/javascript">
+		
+		//input박스 추가버튼
+		const add_textbox = () => {
+		    const box = document.getElementById("box");
+		    const newP = document.createElement('p');
+		    newP.innerHTML = 
+		    	"<input class='in3' type='text'> " +
+		    	"<input class='in4' type='text'> " +
+		    	"<button class='btn' type='button' onclick='remove(this)'>삭제</button>";
+		    box.appendChild(newP);
+		}
+		const remove = (obj) => {
+		    document.getElementById('box').removeChild(obj.parentNode);
+		}
+		
+		//이미지 업로드 js
+		
+		
+        
+	    //개수검사
+	    function getImageFiles(e) {
+	    	const uploadFiles = [];
+	        const files = e.currentTarget.files;
+	        const imagePreview = document.querySelector('.image-preview');
+	        const docFrag = new DocumentFragment();
+
+	        if ([...files].length >= 7) {
+	          alert('이미지는 최대 6개 까지 업로드가 가능합니다.');
+	          return;
+	        }
+
+	        // 파일 타입 검사
+	        [...files].forEach(file => {
+	          if (!file.type.match("image/.*")) {
+	            alert('이미지 파일만 업로드가 가능합니다.');
+	            return
+	          }
+
+	          // 파일 갯수 검사
+	          if ([...files].length < 7) {
+	            uploadFiles.push(file);
+	            const reader = new FileReader();
+	            reader.onload = (e) => {
+	              const preview = createElement(e, file);
+	              imagePreview.appendChild(preview);
+	            };
+	            reader.readAsDataURL(file);
+	          }
+	        });
+	    }
+	        
+	        //유효성 검사
+	        function createElement(e, file) {
+	            const li = document.createElement('li');
+	            const img = document.createElement('img');
+	            img.setAttribute('src', e.target.result);
+	            img.setAttribute('data-file', file.name);
+	            li.appendChild(img);
+
+	            return li;
+	          }
+	        
+	       
+	        const realUpload = document.querySelector('.real-upload');
+	        const upload = document.querySelector('.upload');
+	        
+	        upload.addEventListener('click', () => realUpload.click());
+	        
+	        realUpload.addEventListener('change', getImageFiles);
+	       
+</script>
 	<div>
-		<p>레시피 등록</p>
 		<div class="newRecipe">
+		<h3>레시피 등록</h3>
 			<form action="">
 				<div class="recipeMain">
 					<label for="recipe" class="recipe">레시피 제목</label>
@@ -150,6 +391,31 @@
 						  <option value="2">Two</option>
 						  <option value="3">Three</option>
 						</select>
+				</div>
+				<div class="ingredientsMain">
+					<label for="ingredients" class="ingredients">재료 추가</label>
+					<div id="box">
+			            <input type="text" class="in3" placeholder="ex ) 감자3개" > 
+			            <input type="text" class="in4" placeholder="ex ) 돼지고기500g" > 
+			            <button class="btn" type="button" onclick="add_textbox()">추가</button>
+			        </div> 
+				</div>
+				<div class="recipeTurnMain">
+					<label for="recipeTurn" class="recipeTurns">요리 순서</label>
+					<textarea  placeholder="요리 순서를 입력해주세요" class="recipeTurn" id="recipeTurn"></textarea>
+				</div>
+				<!-- id값이 for값으로 영향이 간다 -->
+				<!-- <div class="recipePictureMain">
+					<label class="recipePictures">요리순서<br>이미지</label>
+					<label for="recipePicture" class="input-file-button">이미지 업로드</label>
+					<label for="recipePicture" class="input-file-button">이미지 업로드</label>
+					<label for="recipePicture" class="input-file-button">이미지 업로드</label>
+					<input type="file" class="in5" id="recipePicture"> 
+				</div> -->
+				<!-- 이미지 업로드  -->
+				<div class="recipePictureMain">
+					<input type="file" class="real-upload" accept="image/*" required multiple style="display: none;">
+	  				<div class="upload"></div>
 				</div>
 			</form>
 		</div>
