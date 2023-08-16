@@ -285,78 +285,6 @@ p{
 </style>
 </head>
 <body>
-<script type="text/javascript">
-		
-		//input박스 추가버튼
-		const add_textbox = () => {
-		    const box = document.getElementById("box");
-		    const newP = document.createElement('p');
-		    newP.innerHTML = 
-		    	"<input class='in3' type='text'> " +
-		    	"<input class='in4' type='text'> " +
-		    	"<button class='btn' type='button' onclick='remove(this)'>삭제</button>";
-		    box.appendChild(newP);
-		}
-		const remove = (obj) => {
-		    document.getElementById('box').removeChild(obj.parentNode);
-		}
-		
-		//이미지 업로드 js
-		
-		
-        
-	    //개수검사
-	    function getImageFiles(e) {
-	    	const uploadFiles = [];
-	        const files = e.currentTarget.files;
-	        const imagePreview = document.querySelector('.image-preview');
-	        const docFrag = new DocumentFragment();
-
-	        if ([...files].length >= 7) {
-	          alert('이미지는 최대 6개 까지 업로드가 가능합니다.');
-	          return;
-	        }
-
-	        // 파일 타입 검사
-	        [...files].forEach(file => {
-	          if (!file.type.match("image/.*")) {
-	            alert('이미지 파일만 업로드가 가능합니다.');
-	            return
-	          }
-
-	          // 파일 갯수 검사
-	          if ([...files].length < 7) {
-	            uploadFiles.push(file);
-	            const reader = new FileReader();
-	            reader.onload = (e) => {
-	              const preview = createElement(e, file);
-	              imagePreview.appendChild(preview);
-	            };
-	            reader.readAsDataURL(file);
-	          }
-	        });
-	    }
-	        
-	        //유효성 검사
-	        function createElement(e, file) {
-	            const li = document.createElement('li');
-	            const img = document.createElement('img');
-	            img.setAttribute('src', e.target.result);
-	            img.setAttribute('data-file', file.name);
-	            li.appendChild(img);
-
-	            return li;
-	          }
-	        
-	       
-	        const realUpload = document.querySelector('.real-upload');
-	        const upload = document.querySelector('.upload');
-	        
-	        upload.addEventListener('click', () => realUpload.click());
-	        
-	        realUpload.addEventListener('change', getImageFiles);
-	       
-</script>
 	<div>
 		<div class="newRecipe">
 		<h3>레시피 등록</h3>
@@ -413,12 +341,57 @@ p{
 					<input type="file" class="in5" id="recipePicture"> 
 				</div> -->
 				<!-- 이미지 업로드  -->
-				<div class="recipePictureMain">
-					<input type="file" class="real-upload" accept="image/*" required multiple style="display: none;">
-	  				<div class="upload"></div>
+				<div>
+					 <input type="file" id="fileUpload" accept='image/*' multiple="multiple" />
+					    <img id="previewImg0" width="300" alt="이미지 영역" />
+					    <img id="previewImg1" width="300" alt="이미지 영역" />
+					    <img id="previewImg2" width="300" alt="이미지 영역" />
+					    
 				</div>
 			</form>
 		</div>
 	</div>
+	<script type="text/javascript">
+		
+		//input박스 추가버튼
+		const add_textbox = () => {
+		    const box = document.getElementById("box");
+		    const newP = document.createElement('p');
+		    newP.innerHTML = 
+		    	"<input class='in3' type='text'> " +
+		    	"<input class='in4' type='text'> " +
+		    	"<button class='btn' type='button' onclick='remove(this)'>삭제</button>";
+		    box.appendChild(newP);
+		}
+		const remove = (obj) => {
+		    document.getElementById('box').removeChild(obj.parentNode);
+		}
+		
+		//이미지 업로드 js
+	 
+		const fileInput = document.getElementById("fileUpload");
+
+		const handleFiles = (e) => {
+		  const selectedFile = [...fileInput.files];
+		  console.log(selectedFile);
+		  
+		  for(let i = 0; i<selectedFile.length; i++){
+			  const fileReader = new FileReader();
+			  fileReader.readAsDataURL(selectedFile[i]);
+			  console.log(fileReader);
+			  
+			  fileReader.onload = function () {
+			    document.getElementById("previewImg" + i).src = fileReader.result;
+		 	 };
+		  }
+		  
+		
+		};
+		
+		fileInput.addEventListener("change", handleFiles);
+		
+		
+	       
+</script>
 </body>
 </html>
