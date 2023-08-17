@@ -106,6 +106,10 @@ p{
 		border-radius: 5px;
 }
 
+.emailbtn:hover {
+	background-color: var(--green-color);
+}
+
 </style>
 
 
@@ -115,12 +119,12 @@ p{
 	<h2>회원가입</h2>
 	<div class="newForm">
 		<form action="">
-			<label for="email" class="email">이메일</label>
+				<label for="email" class="email">이메일</label>
 				<div class="emailMain">
 					<input type="email" placeholder="이메일을 입력해주세요" class="in2" id="email">
-					<button class="emailbtn">인증번호받기</button> 
+					<button class="emailbtn">확인</button> 
 				</div>
-			<label for="emailConfirm" class="emailConfirm">인증번호</label>
+			    <label for="emailConfirm" class="emailConfirm">인증번호</label>
 				<div class="emailConfirmMain">
 					<input type="text" placeholder="인증번호를 입력해주세요" class="in2" id="emailConfirm"> 
 					<button class="emailbtn">확인</button> 
@@ -139,7 +143,7 @@ p{
 			</div>
 			<div>
 				<label for="username" class="username">닉네임</label>
-				<input type="text" placeholder="사용하실 닉네임을 입력해주세요" class="in" id="username"> 
+				<input type="text" placeholder="닉네임을 입력해주세요" class="in" id="username"> 
 			</div>
 		</form>
 		<button type="submit" id="btn" class="in">가입하기</button>

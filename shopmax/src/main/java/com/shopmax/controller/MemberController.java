@@ -61,10 +61,18 @@ public class MemberController {
 	}
 	
 	// 회원가입 화면2
-	@GetMapping(value="/members/newmem")
+	@GetMapping(value="/members/newMemberForm")
 	public String newMemberForm(Model model) {
 		return "member/newMemberForm";
 	}
+	
+	
+	// 회원가입 화면2
+	@GetMapping(value="/members/findIDPW")
+	public String findIDPW(Model model) {
+		return "member/findIDPW";
+	}
+	
 	
 	
 	

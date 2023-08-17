@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+:root {
+	--green-color: #98FB98;
+}
+
+h2 {
+	text-align: center;
+}
+
+.findForm {
+	margin: auto;
+	width: 500px;
+	border-radius: 5px;
+	padding: 20px;
+}
+
+.in {
+	width: 420px;
+	padding: 10px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border: none;
+	border: 1px solid;
+	/* border-color: var(--green-color); */
+	border-color: #dee2e6;
+	height: 50px;
+	font-size: 14px;
+	margin: auto;
+}
+
+.btn{
+	margin : auto;
+	width: 65px;
+	height: 50px;
+		cursor: pointer;
+		background-color: white;
+		border: 1px solid;
+		border-color: #dee2e6;
+		border-radius: 5px;
+		font-size: 12px;
+}
+
+.phoneNumlMain{
+	display: flex;
+}
+
+.phoneCofirmMain{
+	display: flex;
+}
+</style>
+</head>
+<body>
+	<h2>이메일 찾기</h2>
+	<div class="findForm">
+		<form action="">
+			<label for="phoneNum" class="phoneNum">휴대폰번호입력</label>
+			<div class="phoneNumlMain">
+				<input type="tel" placeholder="인증번호를 받을 휴대폰번호를 입력해주세요" class="in">
+				<button class="btn">인증번호요청</button>
+			</div>
+			<label for="phoneNum" class="phoneCofirm">인증번호입력</label>
+			<div class="phoneCofirmMain">
+				<input type="text" placeholder="인증번호를 입력해주세요" class="in">
+				<button class="btn">확인</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

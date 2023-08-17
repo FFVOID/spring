@@ -49,42 +49,30 @@
 	width:100px;
 }
 
-.recipeContentMain{
+.recipesubMain{
 	display: flex;
 }
 
-.recipeNew{
+.recipeSubs{
 	margin-bottom: auto;
 	margin-top: auto;
 	width:100px;
 }
 
-.recipeContent{
+.recipeSub{
 	width: 500px;
 	padding: 10px;
 	box-sizing: border-box;
 	border-radius: 5px;
 	border: none;
-	margin-bottom: auto;
-	margin-top: auto;
+	margin-bottom: 15px;
 	border: 1px solid;
 	/* border-color: var(--green-color); */
 	border-color: #dee2e6;
-	margin-top: 10px;
+	margin-top: 15px;
+	height: 50px;
 	font-size: 14px;
 	margin-left: 50px;
-	height: 120px;
-	resize: none;
-}
-
-.playMain{
-	display: flex;
-}
-
-.play{
-	width:100px;
-	margin-bottom: auto;
-	margin-top: auto;
 }
 
 .pictureMain{
@@ -99,7 +87,7 @@
 
 .categoryMain{
 	display: flex;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
 
 .category{
@@ -183,7 +171,8 @@ p{
 }
 
 .recipeTurnMain{
-	display: flex;
+display: flex;
+height: 70px;
 }
 
 .recipeTurns{
@@ -193,21 +182,39 @@ p{
 }
 
 .recipeTurn{
-	width: 500px;
+	width: 430px;
 	padding: 10px;
 	box-sizing: border-box;
 	border-radius: 5px;
 	border: none;
-	margin-bottom: auto;
-	margin-top: auto;
 	border: 1px solid;
 	/* border-color: var(--green-color); */
 	border-color: #dee2e6;
-	margin-top: 10px;
+	margin-top: 5px;
+	height: 60px;
 	font-size: 14px;
 	margin-left: 50px;
-	height: 120px;
 	resize: none;
+}
+
+.btn2{
+width: 65px;
+	height: 40px;
+		cursor: pointer;
+		background-color: white;
+		border: 1px solid;
+		border-color: #dee2e6;
+		border-radius: 5px;
+		margin-bottom: auto;
+		font-size: 13px;
+		margin-left: 7px;
+		margin-top: auto;
+}
+
+.btn2:hover{
+	background-color: var(--green-color);
+	border: 1px solid;
+	border-color: #dee2e6;
 }
 
 .recipePictureMain {
@@ -255,108 +262,101 @@ p{
 	border-color: black;
 }
 
-   li {
-      list-style: none;
-    }
+.in10{
+	display: flex;
+}
 
-    img {
-      width: 200px;
-      height: 200px;
-    }
+.recipeTurns{
+	width: 100px;
+}
 
-    .real-upload {
-      display: none;
-    }
+#btnAtt{
+	margin-left: 50px;
+}
 
-    .upload {
-      width: 200px;
-      height: 200px;
-      background-color: antiquewhite;
-    }
+p{
+	display: flex;
+}
 
-    .image-preview {
-      width: 1300px;
-      height: 200px;
-      background-color: aquamarine;
-      display: flex;
-      gap: 20px;
-    }
+.box3{
+	display: flex;
+}
+
+.newbtns{
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border: none;
+	margin-bottom: 25px;
+	border: 1px solid;
+	/* border-color: var(--green-color); */
+	border-color: #dee2e6;
+	margin-top: 10px;
+	height: 50px;
+	font-size: 14px;
+}
+
+#newbtn{
+	background-color: #1BBC9B;
+	margin-bottom: 30px;
+	color: white;
+	cursor: pointer;
+	transition: background-color 0.5s;
+	border: none;
+}
+
+#newbtn:hover{
+	background-color: gold;
+}
+
+.recipeTime{
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.recipeTimes{
+	margin-bottom: auto;
+	margin-top: auto;
+	width: 100px;
+	margin-right: 50px;
+}
+
+.time{
+	margin-right: 30px;
+}
+
+.recipeContent{
+	display: flex;
+}
+
+.recipeContents{
+	margin-bottom: auto;
+	margin-top: auto;
+	width: 100px;
+}
+
+.in6{
+	width: 500px;
+	padding: 10px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border: none;
+	margin-bottom: 15px;
+	border: 1px solid;
+	/* border-color: var(--green-color); */
+	border-color: #dee2e6;
+	margin-top: 15px;
+	height: 80px;
+	font-size: 14px;
+	margin-left: 50px;
+	resize: none;
+}
+/* 이미지 추가버튼 css  */
 
 </style>
 </head>
 <body>
-<script type="text/javascript">
-		
-		//input박스 추가버튼
-		const add_textbox = () => {
-		    const box = document.getElementById("box");
-		    const newP = document.createElement('p');
-		    newP.innerHTML = 
-		    	"<input class='in3' type='text'> " +
-		    	"<input class='in4' type='text'> " +
-		    	"<button class='btn' type='button' onclick='remove(this)'>삭제</button>";
-		    box.appendChild(newP);
-		}
-		const remove = (obj) => {
-		    document.getElementById('box').removeChild(obj.parentNode);
-		}
-		
-		//이미지 업로드 js
-		
-		
-        
-	    //개수검사
-	    function getImageFiles(e) {
-	    	const uploadFiles = [];
-	        const files = e.currentTarget.files;
-	        const imagePreview = document.querySelector('.image-preview');
-	        const docFrag = new DocumentFragment();
-
-	        if ([...files].length >= 7) {
-	          alert('이미지는 최대 6개 까지 업로드가 가능합니다.');
-	          return;
-	        }
-
-	        // 파일 타입 검사
-	        [...files].forEach(file => {
-	          if (!file.type.match("image/.*")) {
-	            alert('이미지 파일만 업로드가 가능합니다.');
-	            return
-	          }
-
-	          // 파일 갯수 검사
-	          if ([...files].length < 7) {
-	            uploadFiles.push(file);
-	            const reader = new FileReader();
-	            reader.onload = (e) => {
-	              const preview = createElement(e, file);
-	              imagePreview.appendChild(preview);
-	            };
-	            reader.readAsDataURL(file);
-	          }
-	        });
-	    }
-	        
-	        //유효성 검사
-	        function createElement(e, file) {
-	            const li = document.createElement('li');
-	            const img = document.createElement('img');
-	            img.setAttribute('src', e.target.result);
-	            img.setAttribute('data-file', file.name);
-	            li.appendChild(img);
-
-	            return li;
-	          }
-	        
-	       
-	        const realUpload = document.querySelector('.real-upload');
-	        const upload = document.querySelector('.upload');
-	        
-	        upload.addEventListener('click', () => realUpload.click());
-	        
-	        realUpload.addEventListener('change', getImageFiles);
-	       
-</script>
 	<div>
 		<div class="newRecipe">
 		<h3>레시피 등록</h3>
@@ -365,13 +365,9 @@ p{
 					<label for="recipe" class="recipe">레시피 제목</label>
 					<input type="text" placeholder="레시피 제목을 입력해주세요" class="in" id="recipe"> 
 				</div>
-				<div class="recipeContentMain">
-					<label for="recipeContent" class="recipeNew">레시피 소개</label>
-					<textarea  placeholder="레시피의 배경을 알려주세요" class="recipeContent" id="recipeContent"></textarea>
-				</div>
-				<div class="playMain">
-					<label for="play" class="play">동영상 주소</label>
-					<input type="text" placeholder="레시피 동영상의 주소를 입력해주세요" class="in" id="play"> 
+				<div class="recipesubMain">
+					<label for="recipeContent" class="recipeSubs">레시피부제목</label>
+					<input type="text" placeholder="레시피 부제목을 입력해주세요" class="recipeSub" id="recipeSub"> 
 				</div>
 				<div class="pictureMain">
 					<label for="picture" class="picture">요리완성사진</label>
@@ -392,6 +388,28 @@ p{
 						  <option value="3">Three</option>
 						</select>
 				</div>
+				<div class="recipeTime">
+					<label for="recipeTime" class="recipeTimes">조리 시간</label>
+					<select class="form-select time" aria-label="select example">
+						  <option selected>시간</option>
+						  <option value="1">~10분</option>
+						  <option value="2">10~20분</option>
+						  <option value="3">20~30분</option>
+						  <option value="4">30~40분</option>
+						  <option value="5">40~50분</option>
+						  <option value="6">50분+</option>
+					</select>
+					<label for="recipeTime" class="recipeTimes">조리 인분수</label>
+					<select class="form-select time" aria-label="select example">
+						  <option selected>인분</option>
+						  <option value="1">1인분</option>
+						  <option value="2">2인분</option>
+						  <option value="3">3인분</option>
+						  <option value="4">4인분</option>
+						  <option value="5">5인분</option>
+						  <option value="6">5인분이상</option>
+					</select>
+				</div>
 				<div class="ingredientsMain">
 					<label for="ingredients" class="ingredients">재료 추가</label>
 					<div id="box">
@@ -400,9 +418,18 @@ p{
 			            <button class="btn" type="button" onclick="add_textbox()">추가</button>
 			        </div> 
 				</div>
-				<div class="recipeTurnMain">
-					<label for="recipeTurn" class="recipeTurns">요리 순서</label>
-					<textarea  placeholder="요리 순서를 입력해주세요" class="recipeTurn" id="recipeTurn"></textarea>
+				<div class="recipeContent">
+					<label for="recipe" class="recipeContents">조리 설명</label>
+					<textarea placeholder="조리 설명을 입력해주세요" class="in6"></textarea> 
+				</div>
+				<div class="ingredientsMain">
+					<label for="ingredients" class="ingredients">조리 순서</label>
+					<div id="box2">
+						<div class="box3">
+			            	<textarea class="recipeTurn" placeholder="ex )step1 요리순서를 입력해주세요" ></textarea>
+				            <button class="btn2" type="button" onclick="add_textareabox()">추가</button>
+						</div>
+			        </div> 
 				</div>
 				<!-- id값이 for값으로 영향이 간다 -->
 				<!-- <div class="recipePictureMain">
@@ -413,12 +440,88 @@ p{
 					<input type="file" class="in5" id="recipePicture"> 
 				</div> -->
 				<!-- 이미지 업로드  -->
-				<div class="recipePictureMain">
-					<input type="file" class="real-upload" accept="image/*" required multiple style="display: none;">
-	  				<div class="upload"></div>
-				</div>
+				
+				<button type="submit" id="newbtn" class="newbtns">등록하기</button>
 			</form>
 		</div>
 	</div>
+	<script type="text/javascript">
+	
+	//input박스 추가버튼
+		const add_textbox = () => {
+		    const box = document.getElementById("box");
+		    const newP = document.createElement('div');
+		    newP.innerHTML = 
+		    	"<input class='in3' type='text'> " +
+		    	"<input class='in4' type='text'> " +
+		    	"<button class='btn' type='button' onclick='remove(this)'>삭제</button>";
+		    box.appendChild(newP);
+		}
+		const remove = (obj) => {
+		    document.getElementById('box').removeChild(obj.parentNode);
+		}
+		
+		
+		const add_textareabox = () => {
+		    const box2 = document.getElementById("box2");
+		    const newP = document.createElement('p');
+		    
+		    newP.innerHTML =
+		    	"<div>" +  "<textarea class='recipeTurn'>"
+		    	+"</textarea>" + "</div>" +
+		    	"<button class='btn2' type='button' onclick='remove2(this)'>삭제</button>" 
+		    	
+		    box2.appendChild(newP);
+		    	
+		}
+		const remove2 = (obj) => {
+		    document.getElementById('box2').removeChild(obj.parentNode);
+		}
+		
+		//이미지 추가
+		  const Images = () => {
+		  const [showImages, setShowImages] = useState([]);
+		
+		  // 이미지 상대경로 저장
+		  const handleAddImages = (event) => {
+		    const imageLists = event.target.files;
+		    let imageUrlLists = [...showImages];
+		
+		    for (let i = 0; i < imageLists.length; i++) {
+		      const currentImageUrl = URL.createObjectURL(imageLists[i]);
+		      imageUrlLists.push(currentImageUrl);
+		    }
+		
+		    if (imageUrlLists.length > 7) {
+		      imageUrlLists = imageUrlLists.slice(0, 6);
+		    }
+		
+		    setShowImages(imageUrlLists);
+		  };
+		
+		  // X버튼 클릭 시 이미지 삭제
+		  const handleDeleteImage = (id) => {
+		    setShowImages(showImages.filter((_, index) => index !== id));
+		  };
+		
+		  return (
+		    <div className={classes.addPicture}>
+		      <label htmlFor="input-file" className={classes.addButton} onChange={handleAddImages}>
+		        <input type="file" id="input-file" multiple className={classes.addButton} />
+		        <Plus fill="#646F7C" />
+		        <span>사진추가</span>
+		      </label>
+		
+		      // 저장해둔 이미지들을 순회하면서 화면에 이미지 출력
+		      {showImages.map((image, id) => (
+		        <div className={classes.imageContainer} key={id}>
+		          <img src={image} alt={`${image}-${id}`} />
+		          <Delete onClick={() => handleDeleteImage(id)} />
+		        </div>
+		      ))}
+		    </div>
+		  );
+		};
+	</script>
 </body>
 </html>
