@@ -440,17 +440,35 @@ p{
 					<input type="file" class="in5" id="recipePicture"> 
 				</div> -->
 				<!-- 이미지 업로드  -->
+<<<<<<< HEAD
 				
 				<button type="submit" id="newbtn" class="newbtns">등록하기</button>
+=======
+				<div>
+					 <input type="file" id="fileUpload" accept='image/*' multiple="multiple" />
+					    <img id="previewImg0" width="300" alt="이미지 영역" />
+					    <img id="previewImg1" width="300" alt="이미지 영역" />
+					    <img id="previewImg2" width="300" alt="이미지 영역" />
+					    
+				</div>
+>>>>>>> 9d2aa174df5a4a71ea7d3f6e1b25734b2349e2c8
 			</form>
 		</div>
 	</div>
 	<script type="text/javascript">
+<<<<<<< HEAD
 	
 	//input박스 추가버튼
 		const add_textbox = () => {
 		    const box = document.getElementById("box");
 		    const newP = document.createElement('div');
+=======
+		
+		//input박스 추가버튼
+		const add_textbox = () => {
+		    const box = document.getElementById("box");
+		    const newP = document.createElement('p');
+>>>>>>> 9d2aa174df5a4a71ea7d3f6e1b25734b2349e2c8
 		    newP.innerHTML = 
 		    	"<input class='in3' type='text'> " +
 		    	"<input class='in4' type='text'> " +
@@ -461,6 +479,7 @@ p{
 		    document.getElementById('box').removeChild(obj.parentNode);
 		}
 		
+<<<<<<< HEAD
 		
 		const add_textareabox = () => {
 		    const box2 = document.getElementById("box2");
@@ -523,5 +542,33 @@ p{
 		  );
 		};
 	</script>
+=======
+		//이미지 업로드 js
+	 
+		const fileInput = document.getElementById("fileUpload");
+
+		const handleFiles = (e) => {
+		  const selectedFile = [...fileInput.files];
+		  console.log(selectedFile);
+		  
+		  for(let i = 0; i<selectedFile.length; i++){
+			  const fileReader = new FileReader();
+			  fileReader.readAsDataURL(selectedFile[i]);
+			  console.log(fileReader);
+			  
+			  fileReader.onload = function () {
+			    document.getElementById("previewImg" + i).src = fileReader.result;
+		 	 };
+		  }
+		  
+		
+		};
+		
+		fileInput.addEventListener("change", handleFiles);
+		
+		
+	       
+</script>
+>>>>>>> 9d2aa174df5a4a71ea7d3f6e1b25734b2349e2c8
 </body>
 </html>
