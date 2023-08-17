@@ -440,10 +440,8 @@ p{
 					<input type="file" class="in5" id="recipePicture"> 
 				</div> -->
 				<!-- 이미지 업로드  -->
-<<<<<<< HEAD
 				
 				<button type="submit" id="newbtn" class="newbtns">등록하기</button>
-=======
 				<div>
 					 <input type="file" id="fileUpload" accept='image/*' multiple="multiple" />
 					    <img id="previewImg0" width="300" alt="이미지 영역" />
@@ -451,24 +449,16 @@ p{
 					    <img id="previewImg2" width="300" alt="이미지 영역" />
 					    
 				</div>
->>>>>>> 9d2aa174df5a4a71ea7d3f6e1b25734b2349e2c8
 			</form>
 		</div>
 	</div>
 	<script type="text/javascript">
-<<<<<<< HEAD
 	
 	//input박스 추가버튼
 		const add_textbox = () => {
 		    const box = document.getElementById("box");
 		    const newP = document.createElement('div');
-=======
 		
-		//input박스 추가버튼
-		const add_textbox = () => {
-		    const box = document.getElementById("box");
-		    const newP = document.createElement('p');
->>>>>>> 9d2aa174df5a4a71ea7d3f6e1b25734b2349e2c8
 		    newP.innerHTML = 
 		    	"<input class='in3' type='text'> " +
 		    	"<input class='in4' type='text'> " +
@@ -479,7 +469,6 @@ p{
 		    document.getElementById('box').removeChild(obj.parentNode);
 		}
 		
-<<<<<<< HEAD
 		
 		const add_textareabox = () => {
 		    const box2 = document.getElementById("box2");
@@ -498,77 +487,7 @@ p{
 		}
 		
 		//이미지 추가
-		  const Images = () => {
-		  const [showImages, setShowImages] = useState([]);
 		
-		  // 이미지 상대경로 저장
-		  const handleAddImages = (event) => {
-		    const imageLists = event.target.files;
-		    let imageUrlLists = [...showImages];
-		
-		    for (let i = 0; i < imageLists.length; i++) {
-		      const currentImageUrl = URL.createObjectURL(imageLists[i]);
-		      imageUrlLists.push(currentImageUrl);
-		    }
-		
-		    if (imageUrlLists.length > 7) {
-		      imageUrlLists = imageUrlLists.slice(0, 6);
-		    }
-		
-		    setShowImages(imageUrlLists);
-		  };
-		
-		  // X버튼 클릭 시 이미지 삭제
-		  const handleDeleteImage = (id) => {
-		    setShowImages(showImages.filter((_, index) => index !== id));
-		  };
-		
-		  return (
-		    <div className={classes.addPicture}>
-		      <label htmlFor="input-file" className={classes.addButton} onChange={handleAddImages}>
-		        <input type="file" id="input-file" multiple className={classes.addButton} />
-		        <Plus fill="#646F7C" />
-		        <span>사진추가</span>
-		      </label>
-		
-		      // 저장해둔 이미지들을 순회하면서 화면에 이미지 출력
-		      {showImages.map((image, id) => (
-		        <div className={classes.imageContainer} key={id}>
-		          <img src={image} alt={`${image}-${id}`} />
-		          <Delete onClick={() => handleDeleteImage(id)} />
-		        </div>
-		      ))}
-		    </div>
-		  );
-		};
-	</script>
-=======
-		//이미지 업로드 js
-	 
-		const fileInput = document.getElementById("fileUpload");
-
-		const handleFiles = (e) => {
-		  const selectedFile = [...fileInput.files];
-		  console.log(selectedFile);
-		  
-		  for(let i = 0; i<selectedFile.length; i++){
-			  const fileReader = new FileReader();
-			  fileReader.readAsDataURL(selectedFile[i]);
-			  console.log(fileReader);
-			  
-			  fileReader.onload = function () {
-			    document.getElementById("previewImg" + i).src = fileReader.result;
-		 	 };
-		  }
-		  
-		
-		};
-		
-		fileInput.addEventListener("change", handleFiles);
-		
-		
-	       
 </script>
->>>>>>> 9d2aa174df5a4a71ea7d3f6e1b25734b2349e2c8
 </body>
 </html>
